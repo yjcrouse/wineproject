@@ -10,7 +10,7 @@ router.get('', (req, res) => {
 });
 
 router.get('/:name', (req, res) => {
-  Wine.findOne({ where: { typeOfWine: req.params.name }})
+  Wine.findOne({ where: { typeofWine: req.params.name }})
     .then(wine => res.status(200).json(wine))
     .catch(err => res.status(500).json({ error: err}))
 })
@@ -33,10 +33,10 @@ router.post('/', validateSession, (req, res) => {
       year: req.body.year,
       region: req.body.region,
       description: req.body.description,
-      foodPairings: req.body.foodPairings,
+      foodPairings: req.body.foodPairings
     }
 
-    Wine.create(wineFromRequest)
+    wine.create(wineFromRequest)
       .then(wine => res.status(200).json(wine))
       .catch(err => res.json(req.errors))
   } else {
