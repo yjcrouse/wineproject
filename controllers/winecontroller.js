@@ -36,7 +36,7 @@ router.post('/', validateSession, (req, res) => {
       foodPairings: req.body.foodPairings
     }
 
-    wine.create(wineFromRequest)
+    Wine.create(wineFromRequest)
       .then(wine => res.status(200).json(wine))
       .catch(err => res.json(req.errors))
   } else {
